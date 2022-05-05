@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+		<style>
+			#form1{
+				
+			}
+		</style>
+  </head>
+  <body>
+    <h1>Form Basics</h1>
+	
+		<form id="form1">
+			<input type="text" id="text1" name="text1">
+		<br>
+			<label for="red">Red</label>
+			<inpnut type="radio" name="radio1" value="red">
+			<label for="green">Green</label>
+			<input type="radio" name="radio1" id="green" value="green">
+			<label for="blue">Blue</label>
+			<input type="radio" name="radio1" value="blue">
+		<br><br>
+			<label for="select1">Select1</label>
+			<select name="select1" id="select1">
+				<option value="empty"></option>
+				<option value="Mon">Mon</option>
+				<option value="Wed">Wed</option>
+				<option value="Fri">Fri</option>
+			</select>
+		<br><br>
+			<label for="textarea1">Please provide any additional feedback</label>
+		<br><br>
+		<input type="button" onclick="submitClicked();" value="submitForm">
+		</form>	
+		<br><br>
+
+    <p id="uptonSinclairQuote">
+			It is difficult to get a man to understand something, when his salary depends upon his not understanding it! -- Upton Sinclair
+    </p>
+	<script>
+		let textName = document.querySelector("#text1").value = "Tyler Kooper";
+		let radioSelected = document.querySelector("#green").checked = true;
+		function submitClicked(){
+		 document.querySelector("#form1").submit();
+			
+		}
+	</script>
+  </body>
+</html>

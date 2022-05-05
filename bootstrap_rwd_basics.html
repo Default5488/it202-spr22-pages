@@ -16,7 +16,7 @@
 			}
 
 			.flexible-width{
-				background-color: RGB(0, 181, 226);
+				background: RGB(0, 181, 226);
 			}
 
 			.text-white{
@@ -25,12 +25,50 @@
 		</style>
   </head>
   <body>
-    <div class="container">
-			<div id="fixed-width">
+    <div class="container text-white">
+			<div id="fixed-width" class="flexible-width">
 				<p>Fixed Width</p>
 			</div>
-			<div id="flexible-width"
-				<p>Flexible Width</p>
+		</div>
+		 <div class="container text-white">
+			 <div id="flexible-width">
+				 <p>Flexible Width</p>
+			 </div>
+		 </div>
+		<br>
+		<div class="container text-white">
+			<div class="row align-itmes-start">
+				<div class="col">
+					One of three columns
+				</div>
+				<div class="col">
+					One of three columns
+				</div>
+				<div class="col">
+					One of three columns
+				</div>
+			</div>
+			<div class="row align-items-center">
+				<div class="col">
+					One of three columns
+				</div>
+				<div class="col">
+					One of three columns
+				</div>
+				<div class="col">
+					One of three columns
+				</div>
+			</div>
+			<div class="row align-items-end">
+				<div class="col">
+					One of three columns
+				</div>
+				<div class="col">
+					One of three columns
+				</div>
+				<div class="col">
+					One of three columns
+				</div>
 			</div>
 		</div>
   </body>

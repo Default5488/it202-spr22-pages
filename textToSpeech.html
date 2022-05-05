@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>textToSpeech</title>
+	 	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
+    <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label">
+  <span class="mdc-notched-outline">
+    <span class="mdc-notched-outline__leading"></span>
+    <span class="mdc-notched-outline__trailing"></span>
+  </span>
+  <span class="mdc-text-field__resizer">
+    <textarea class="mdc-text-field__input" rows="8" cols="40" aria-label="Label"></textarea>
+  </span>
+</label>
+
+    <button>Listen</button>
+
+<script>
+ 	 let synth = window.speechSynthesis;
+      // speak any paragraph content
+      // document.querySelector("body")
+		document.querySelector(".mdc-text-field__input").addEventListener("click", (e) => {
+			console.log(e);
+		// if the clicked element is a paragraph
+		// let c = document.querySelector(".mdc-text-field__input");
+			let utterance = new SpeechSynthesisUtterance(e.srcElement.value);
+			console.log(e.value);
+			utterance.voice = synth.getVoices()[0];
+			speechSynthesis.speak(utterance);
+		});
+    </script>
+  </body>
+</html>

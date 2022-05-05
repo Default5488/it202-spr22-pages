@@ -23,12 +23,11 @@
       <div class="screen" id="home" hidden> Home page content</div>
       <div class="screen" id="stuff" hidden>Here's some stuff</div>
       <div class="screen" id="settings" hidden>Settings</div>
-			<div class="Function" id="Function" hidden>Function</div>
+			<div class="screen" id="Function" hidden>Function</div>
     </div>
     <script>
 
       document.querySelector("#home").removeAttribute("hidden");
-
       let navAnchors = document.querySelectorAll("div#topnav a");
 
       navAnchors.forEach ( (anchor) => {

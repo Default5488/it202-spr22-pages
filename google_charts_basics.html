@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	
+		<script>
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawPieChart);
+			google.charts.setOnLoadCallback(drawLineChart);
+
+			function drawPieChart(){
+				let endpoint = "https://data.cityofchicago.org/resource/dw27-rash.json?$SELECT=school_type,count(school_type)&$GROUP=school_type";
+
+				fetch(endpoint)
+				.then((response) =>{return response.json()})
+				.then((json) => {
+					console.log(json);
+					let data = new google.visualization.DataTable();
+
+					data.addColumn('string', 'school_type');
+					data.addColumn('number', 'count_school_type');
+
+					json.forEach((school) => {
+						data.addRow([school["school_type"], parseInt(school["count_school_type"])]);
+					});
+
+					let pieChart = new google.visualization.PieChart(document.querySelector("#pieChart"));
+					let options = {
+							"title":"Pie Chart Representation",
+							// "width":400,
+							// "height":300
+					};
+					pieChart.draw(data, options);
+				})
+			}
+
+			
+			function drawLineChart(){
+				let endpoint = "https://data.cityofchicago.org/resource/553k-3xzc.json?$SELECT=date,sum(total_doses_cumulative)&$GROUP=date&$ORDER=date";
+				fetch(endpoint)
+				.then((response) => {return response.json()})
+				.then((json) => {
+					let data = new google.visualization.DataTable();
+					data.addColumn('string', 'date');
+					data.addColumn('number', 'sum_total_doses_cumulative');
+
+					json.forEach((dat) => {
+						data.addRow([dat["date"], parseInt(dat["sum_total_doses_cumulative"])]);
+					});
+					let lineChart = new google.visualization.LineChart(document.querySelector("#lineChart"));
+					let options = {
+						"title":"Line Chart Representation",
+					};
+					lineChart.draw(data, options);
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="pieChart" style="width:400px; height:300px;"></div>
+		<div id="lineChart" style="width:400px; height:300px;"></div>
+	</body>
+</html>

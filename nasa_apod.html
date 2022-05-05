@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+	</head>
+	<body>
+		<!---4kafpg3dBdak6iWp6utwWwgvj3TGN8xUZKG5qgKB-->
+			<h1 id="change">replit</h1>
+		<br>			
+			<p id="data"></p>	
+		<script>
+			let apiEndPoint = "https://api.nasa.gov/planetary/apod?api_key=cIv3SjCyddSgHcXGmxDkoiFGhEnuurOqKrlVeZHv";
+			fetch(apiEndPoint)
+			.then(response => {return response.json()})
+			.then(json => {
+				console.log(json);
+				let ttl = json.title;
+				let para = json.explanation;
+				var img = new Image();
+				img.src = json.hdurl;
+				
+				document.querySelector("#change").innerHTML = ttl;
+				document.querySelector("#data").innerHTML = para;
+				document.body.append(img);
+			})
+			.catch(err => alert(err))
+		</script>
+	</body>
+</html>
